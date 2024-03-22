@@ -49,8 +49,8 @@ a:hover {
 }
 
 label {
-    display: block; /* 라벨을 블록 요소로 설정*/
-    margin-bottom: 5px; /* 텍스트 영역과의 간격 설정 */
+    display: block; /* 라벨을 블록 요소로 설정하기*/
+    margin-bottom: 5px; /* 텍스트 영역과의 간격 설정하기*/
 }
 
 input[type=submit]{
