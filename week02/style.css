@@ -1,5 +1,5 @@
 img{
-    box-shadow: 0 1px 20px rgba(0,0,0,0.1);
+    filter: drop-shadow( 5px 5px 5px rgba(213, 131, 8, 0.861));
     border-radius: 50%;
     width: 150px;
     margin-top: 20px;
@@ -46,6 +46,23 @@ a:hover {
     margin-left: auto;
     border: 1px solid #ebebeb;
     box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
+}
+
+label {
+    display: block; /* 라벨을 블록 요소로 설정*/
+    margin-bottom: 5px; /* 텍스트 영역과의 간격 설정 */
+}
+
+input[type=submit]{
+    background-color: black;
+    color: white;
+
+}
+
+input[type=submit]:hover{
+    background-color: orange;
+    color: black;
+
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
