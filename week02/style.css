@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Hahmlet:wght@100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap');
+
+*{
+    font-family: "Gowun Dodum", sans-serif;
+}
+a, h1, h2{
+    font-family: "Hahmlet" , sans-serif;
+}
+
 img{
-    box-shadow: 0 1px 20px rgba(0,0,0,0.1);
+    filter: drop-shadow( 5px 5px 5px rgba(213, 131, 8, 0.861));
     border-radius: 50%;
     width: 150px;
     margin-top: 20px;
@@ -48,8 +59,19 @@ a:hover {
     box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+label {
+    display: block; /* 라벨을 블록 요소로 설정하기*/
+    margin-bottom: 5px; /* 텍스트 영역과의 간격 설정*/
+}
 
-*{
-    font-family: "Nato Sans KR", sans-serif;
+input[type=submit]{
+    background-color: black;
+    color: white;
+
+}
+
+input[type=submit]:hover{
+    background-color: orange;
+    color: black;
+
 }
