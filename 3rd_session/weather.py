@@ -1,7 +1,7 @@
 import requests
 import json
 
-city = "paris"
+city = "Venice"
 apikey = "a3abc0bf7648f4f7da07f363828bd098"
 lang="kr"
 
@@ -13,7 +13,7 @@ result = requests.get(api)
 data=json.loads(result.text)
 
 #print(type(result.text))
-#print(type(data))
+#print(data)
 
 print(data["name"], "의 날씨입니다.")
 print("날씨는 ", data["weather"][0]["description"], "입니다.")
@@ -23,4 +23,6 @@ print("최저 기온은 ", data["main"]["temp_min"], "입니다.")
 print("최고 기온은 ", data["main"]["temp_max"], "입니다.")
 print("기압은 ", data["main"]["pressure"], "입니다.")
 print("습도는 ", data["main"]["humidity"], "입니다.")
-
+print("🍃바람에 대한 안내입니다.")
+print("오늘의 풍향은 ",data["wind"]["deg"],"입니다.")
+print("오늘의 풍속은 ",data["wind"]["speed"],"m/s 입니다.")
