@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserMa
 class UserManager(DjangoUserManger):
     def _create_user(self, username, email, password, **extra_fields):
         if not email:
-            raise ValueError("이메일은 필수 값입니다")
+            raise ValueError("이메일은 필수 값입니다! 반드시 입력해주세요")
         user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self.db)
