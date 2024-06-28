@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 
 from django.views.generic import ListView
 from .models import Post
-from .forms import PostBasedForm
+from .forms import PostBasedForm, PostModelForm
 
 # Create your views here.
 class class_view(ListView):
@@ -55,6 +55,23 @@ def post_form_view(request):
     else:
         return redirect('index')
 
+def post_create_form_view(request):
+    if request.method == "GET":
+        form = PostModelForm()
+        context = {'form': form}
+        return render(request, 'posts/post_form2.html', context)
+    else:
+        form = PostModelForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            Post.objects.create(
+                image = form.cleaned_data['image'],
+                content = form.cleaned_data['content'],
+                writer = request.user
+            )
+        else:
+            return redirect('post:post-new')
+        return redirect('index')
 
 
 
