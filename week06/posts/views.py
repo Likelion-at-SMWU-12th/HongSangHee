@@ -1,9 +1,44 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
+from rest_framework.viewsets import ModelViewSet
 
 from django.views.generic import ListView
 from .models import Post
 from .forms import PostBasedForm, PostModelForm
+from .serializers import PostModelSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+@api_view(['POST'])
+def calculator(request):
+    data = request.data
+    num1 = data.get('num1', 0)
+    num2 = data.get('num2', 0)
+    operator = data.get('operator')
+
+    if operator == '+':
+        result = int(num1) + int(num2)
+    elif operator == '-':
+        result = int(num1) - int(num2)
+    elif operator == '*':
+        result = int(num1) * int(num2)
+    elif operator == '/':
+        result = int(num1) / int(num2)
+    else:
+        result = 0
+
+    data = {
+        'operator' : operator,
+        'result' : result
+    }
+    
+    return Response(data)
+
+
+
+class PostModelViewSet(ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class=PostModelSerializer
 
 # Create your views here.
 class class_view(ListView):
