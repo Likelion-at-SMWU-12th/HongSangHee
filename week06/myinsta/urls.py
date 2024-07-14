@@ -21,18 +21,28 @@ from posts.views import index
 from posts.views import calculator
 from django.conf.urls.static import static
 from django.conf import settings
+from posts.views import *
+from rest_framework import routers
 
-urlpatterns = [
+router = routers.DefaultRouter()
+router.register('posts', PostModelViewSet)
+
+urlpatterns = [ 
+    path('', include(router.urls)),
     path('calculator/', calculator),
     path('admin/', admin.site.urls),
     path('url/', url_view),
     path('url/<str:username>/', url_parameter_view),
     path('fbv/',function_view),
     path('cbv/',class_view.as_view()),
-
-    path('', index, name='index'),
-    path('posts/', include('posts.urls', namespace='posts')),
+    #path('', index, name='index'),
+    #path('posts/', include('posts.urls', namespace='posts')),
+    #path('posts/', PostListCreateView.as_view()),
+    #path('posts/<int:pk>/', PostRetrieveUpdateView.as_view()),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+
+    #로그인
+    path('login/', login_view),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
