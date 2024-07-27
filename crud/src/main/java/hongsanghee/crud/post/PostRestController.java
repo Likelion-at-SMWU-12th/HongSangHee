@@ -40,4 +40,25 @@ public class PostRestController{
         logger.info("in read post");
         return this.postList.get(id);
     }
+
+    //수정하는 RESTFUL API 설계하기
+    // PUT /post?id=0처럼 하면 되겠죠..?
+    @PutMapping("{id}")
+    public void updatePost(@PathVariable("id") int id, @RequestBody PostDto postDto){
+        logger.info("in update post");//로그 남기기
+        PostDto Post = this.postList.get(id);
+        if (Post != null){
+            Post.setTitle(postDto.getTitle());
+            Post.setContent(postDto.getContent());
+            Post.setWriter(postDto.getWriter());
+        }
+
+    }
+    // Delete하는 RESTFUL API 설계하기
+    // DELETE /post?id=0/
+    @DeleteMapping("{id}")
+    public void deletePost(@PathVariable("id") int id){
+        logger.info("in delete post");
+        this.postList.remove(id);
+    }
 }
