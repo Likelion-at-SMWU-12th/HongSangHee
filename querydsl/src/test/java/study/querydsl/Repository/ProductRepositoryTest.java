@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.PageRequest;
 import study.querydsl.entity.Product;
 import study.querydsl.entity.QProduct;
 
@@ -80,6 +81,18 @@ class ProductRepositoryTest {
             System.out.println("Product Name : " + product.getName());
             System.out.println("--------------------");
 
+        }
+    }
+
+    @Test
+    void productLatestTest(){
+        PageRequest pageRequest = PageRequest.of(0, 10);
+        List<Product> latesttList = productRepository.findTop10LatestProducts(pageRequest);
+        for(Product product : latesttList){
+            System.out.println("--------------------");
+            System.out.println("Product Name : " + product.getName());
+            System.out.println("Product Id : " + product.getId());
+            System.out.println("--------------------");
         }
     }
 }
