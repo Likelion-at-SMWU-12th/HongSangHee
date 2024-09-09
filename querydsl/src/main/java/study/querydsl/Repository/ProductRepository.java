@@ -11,7 +11,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("SELECT p FROM Product p ORDER BY p.popularity DESC")
-    List<Product> findTop10ByPopularity();
+    List<Product> findTop10ByOrderByPopularityDesc();
 
 }
