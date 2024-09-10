@@ -1,8 +1,5 @@
 package study.querydsl.Repository;
 
-import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,4 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p ORDER BY p.id DESC")
     List<Product> findTop10LatestProducts(PageRequest pageRequest);
 
+    class CategoryRepository {
+    }
 }
