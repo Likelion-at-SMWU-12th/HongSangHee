@@ -27,4 +27,7 @@ public class PostEntity {//extends BaseEntity {
     )
     private BoardEntity boardEntity;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private Author author;
 }
