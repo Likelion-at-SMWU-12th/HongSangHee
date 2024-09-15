@@ -23,4 +23,8 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "writer_id")
     private Author author;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private PostEntity post;
 }
