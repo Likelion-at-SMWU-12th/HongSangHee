@@ -20,6 +20,7 @@ public class PostEntity {//extends BaseEntity {
     private String content;
     private String writer;
 
+    //BoardEntity와 PostEntity의 관계 소유자 - 양방향
     @JoinColumn(name = "board_id")
     @ManyToOne(
             targetEntity = BoardEntity.class,
