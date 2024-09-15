@@ -3,6 +3,8 @@ package hongsanghee.crud.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,4 +26,5 @@ public class PostEntity {//extends BaseEntity {
             fetch = FetchType.LAZY
     )
     private BoardEntity boardEntity;
+
 }
