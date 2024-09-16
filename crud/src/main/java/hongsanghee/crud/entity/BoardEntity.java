@@ -19,6 +19,7 @@ public class BoardEntity{
     private Long id;
     private String name;
 
+    //BoardEntity와 postentity 관계 중 비소유자(을) - 양방향
     @OneToMany(
             targetEntity = PostEntity.class,
             fetch = FetchType.LAZY,
